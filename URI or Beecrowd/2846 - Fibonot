@@ -1,8 +1,8 @@
 /* BISMILLAHIR ROHMANIR ROHIM */
 #include <bits/stdc++.h>
 using namespace std;
-
-#define sz 1e5+100
+//#define sz 1e5 //unable to generate the whole sequence(explanation is in the bottom)
+#define sz 1e5+100 // can generate the whole sequence
 #define ll long long
 
 int main(){
@@ -41,3 +41,13 @@ int main(){
     return 0; 
 }
 
+/*
+#define sz 1e5
+The issue with this approach is that the Fibonacci sequence grows exponentially, and the 1e5-th Fibonacci number is a very large value
+that can exceed the maximum value that can be represented by the data type used (in this case, long long). This means that the Fibonacci 
+sequence generation will stop at a much smaller value than 1e5, and the Fibonot vector will not contain all the necessary numbers.
+
+#define sz 1e5+100
+In contrast, the first approach avoids this issue by generating the Fibonacci sequence up to a larger limit (1e5+100), which ensures that 
+the Fibonot vector contains all the necessary numbers up to the 1e5-th element.
+*/
