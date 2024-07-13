@@ -1,0 +1,43 @@
+/* BISMILLAHIR ROHMANIR ROHIM */
+#include <bits/stdc++.h>
+using namespace std;
+
+#define sz 1e5+100
+#define ll long long
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    set<ll> fibonacci;
+    ll fst=0, snd=1, next;
+    fibonacci.insert(fst);
+    fibonacci.insert(snd);
+    while(next<=sz){
+        next=fst+snd;
+        fst=snd;
+        snd=next;
+        fibonacci.insert(next);
+    }
+    
+    std::vector<ll> fibonot ;
+    ll num=1;
+    /*
+    if (st.find(num) == st.end()) is used to check if 
+    a number is not present in the set 
+    */
+    while(num<=sz){
+        if(fibonacci.find(num)==fibonacci.end()) // num isn't present in the set
+            fibonot.push_back(num);
+        num++;
+    }
+
+    //if (st.find(num) != st.end()) is used to check 
+    //if a number exists in the set 
+    
+    int k; cin>>k;
+    cout<<fibonot[k-1]<<endl;
+    
+    return 0; 
+}
+
